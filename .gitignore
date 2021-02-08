@@ -1,1 +1,3 @@
 node_modules
+
+mongodb+srv://Zetta:etta1055@cluster0.jeybr.mongodb.net/Book-Club?retryWrites=true&w=majority
