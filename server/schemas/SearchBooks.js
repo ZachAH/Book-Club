@@ -8,12 +8,12 @@ import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import Auth from '../utils/auth';
 
 const SearchBooks = () => {
-  // create state for holding returned google api data
+  // creates state for holding bookss
   const [searchedBooks, setSearchedBooks] = useState([]);
-  // create state for holding our search field data
+  // creates state for holding search data
   const [searchInput, setSearchInput] = useState('');
 
-  // create state to hold saved bookId values
+  // creates state to hold savebook ids
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
   const [saveBook, { error }] = useMutation(SAVE_BOOK);
@@ -24,7 +24,7 @@ const SearchBooks = () => {
     return () => saveBookIds(savedBookIds);
   });
 
-  // create method to search for books and set state on form submit
+  // creates method for searching for book
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -56,9 +56,9 @@ const SearchBooks = () => {
     }
   };
 
-  // create function to handle saving a book to our database
+  // function to save book to our data base
   const handleSaveBook = async (bookId) => {
-    // find the book in `searchedBooks` state by the matching id
+    // find the book in searchedBooks
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
 
     // get token

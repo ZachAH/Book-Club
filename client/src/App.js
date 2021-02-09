@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //importing the apollo libraries
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import SearchBooks from './pages/SearchBooks';
+import SearchBooks from './pages/SearchBooks.js';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 //establishes new connection to graphql sever
