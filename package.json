@@ -4,14 +4,15 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "serve -s build",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
-    "dev": "react-scripts start",
+    "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "seed": "cd server && npm run seed",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm run build"
+    
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4",
-    "serve": "^11.3.2"
+
+    "if-env": "^1.0.4"
   },
   "devDependencies": {
     "concurrently": "^5.2.0"
